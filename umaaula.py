@@ -16,3 +16,6 @@ class Veiculo:
 
 marca1 = Marca("Audi","Alemanha",True)
 veiculo1 = Veiculo("R8",2019,marca1)
+print(veiculo1.modelo)
+print(veiculo1.ano)
+print(veiculo1.marca.getData())
