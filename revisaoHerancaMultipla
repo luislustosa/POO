@@ -1,0 +1,35 @@
+class Bateria:
+    def __init__(self,voltagem,capacidade):
+        self.voltagem = voltagem
+        self.capacidade = capacidade
+    
+    def status(self,):
+        return print("Voltagem: ", self.voltagem,", Capacidade: ",self.capacidade)
+    
+
+class Motor:
+    def __init__(self,potencia, tensao):
+        self.potencia = potencia
+        self.tensao = tensao
+    
+    def status(self):
+        return print("Potencia: ",self.potencia," Tensao: ",self.tensao)
+        
+class Robot(Bateria,Motor):
+    def __init__(self, voltagem, capacidade,potencia,tensao):
+        super().__init__(voltagem, capacidade)
+        Motor.__init__(self,potencia,tensao)
+    def status(self):
+        if self.voltagem == self.tensao:
+            print("Status OK...volt = tensao")
+        else:
+            print("Tensao incompativel")
+
+
+bateria1 = Bateria(220,10000)
+print(bateria1.status())
+motor1 = Motor(200,220)
+print(motor1.status())
+
+robo1 = Robot(bateria1.voltagem,bateria1.capacidade,motor1.potencia,motor1.tensao)
+robo1.status()
